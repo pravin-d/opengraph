@@ -3,7 +3,7 @@
 import re
 
 try:
-    import urllib2
+    import urllib.request, urllib.error, urllib.parse
 except ImportError:
     from urllib import request as urllib2
 
@@ -32,7 +32,7 @@ class OpenGraph(dict):
         self.scrape = scrape
         self._url = url
 
-        for k in kwargs.keys():
+        for k in list(kwargs.keys()):
             self[k] = kwargs[k]
 
         dict.__init__(self)
@@ -52,7 +52,7 @@ class OpenGraph(dict):
     def fetch(self, url):
         """
         """
-        raw = urllib2.urlopen(url)
+        raw = urllib.request.urlopen(url)
         html = raw.read()
         return self.parser(html)
 
@@ -65,8 +65,8 @@ class OpenGraph(dict):
             doc = html
         ogs = doc.html.head.findAll(property=re.compile(r'^og'))
         for og in ogs:
-            if og.has_attr(u'content'):
-                self[og[u'property'][3:]]=og[u'content']
+            if og.has_attr('content'):
+                self[og['property'][3:]]=og['content']
         # Couldn't fetch all attrs from og tags, try scraping body
         if not self.is_valid() and self.scrape:
             for attr in self.required_attrs:
@@ -84,12 +84,12 @@ class OpenGraph(dict):
 
     def to_html(self):
         if not self.is_valid():
-            return u"<meta property=\"og:error\" content=\"og metadata is not valid\" />"
+            return "<meta property=\"og:error\" content=\"og metadata is not valid\" />"
 
-        meta = u""
-        for key,value in self.iteritems():
-            meta += u"\n<meta property=\"og:%s\" content=\"%s\" />" %(key, value)
-        meta += u"\n"
+        meta = ""
+        for key,value in self.items():
+            meta += "\n<meta property=\"og:%s\" content=\"%s\" />" %(key, value)
+        meta += "\n"
 
         return meta
 
@@ -114,7 +114,7 @@ class OpenGraph(dict):
         if images:
             return images[0]
 
-        return u''
+        return ''
 
     def scrape_title(self, doc):
         return doc.html.head.title.text

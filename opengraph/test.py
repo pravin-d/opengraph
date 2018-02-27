@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 import unittest
-import opengraph
+from . import opengraph
 
 HTML = """
 <html xmlns:og="http://ogp.me/ns#">

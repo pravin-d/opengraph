@@ -5,7 +5,7 @@ version = '0.5'
 
 setup(name='opengraph',
       version=version,
-      description="A module to parse the Open Graph Protocol",
+      description="A module to parse the Open Graph Protocol. Ported to Python3.6 using 2to3-3.6",
       long_description=open("README.rst").read() + "\n",
       classifiers=[
       'Development Status :: 3 - Alpha',
