@@ -1,11 +1,13 @@
 OpenGraph is a module of python for parsing the Open Graph Protocol, you can read more about the specification at http://ogp.me/
 
+Note : This repository has only porting related changes and was basically created to make these changes available on PyPi.
+
 Installation
 =============
 
 .. code-block:: console
 
-   $ pip install opengraph
+   $ pip install opengraph-py3.6
 
 Features
 =============
