@@ -3,7 +3,7 @@ import sys, os
 
 version = '0.5'
 
-setup(name='opengraph',
+setup(name='opengraph-py3.6',
       version=version,
       description="A module to parse the Open Graph Protocol. Ported to Python3.6 using 2to3-3.6",
       long_description=open("README.rst").read() + "\n",
