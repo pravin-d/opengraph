@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.65'
+version = '0.71'
 
-setup(name='opengraph-py3.6',
+setup(name='opengraph_py3',
       version=version,
       description="A module to parse the Open Graph Protocol. Ported to Python3.6 using 2to3-3.6",
       long_description=open("README.rst").read() + "\n",

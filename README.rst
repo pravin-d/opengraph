@@ -7,7 +7,7 @@ Installation
 
 .. code-block:: console
 
-   $ pip install opengraph-py3.6
+   $ pip install opengraph_py3
 
 Features
 =============
