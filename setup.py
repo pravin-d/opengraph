@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.6'
+version = '0.65'
 
 setup(name='opengraph-py3.6',
       version=version,
